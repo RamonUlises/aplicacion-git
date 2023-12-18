@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('head') %>
+    <title>Usuarios</title>
+  </head>
+  <body>
+    <main
+      class="container d-flex flex-column justify-content-center align-items-center"
+    >
+      <a href="/create" class="btn btn-dark fw-bold fs-5 mt-5"
+        >Agregar usuario</a
+      >
+
+      <table
+        class="table table-bordered table-striped text-center mt-5 table-dark"
+      >
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Email</th>
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% results.forEach(user => { %>
+          <tr>
+            <th scope="col"><%= user.usuario_id %></th>
+            <th scope="col"><%= user.nombre %></th>
+            <th scope="col"><%= user.email %></th>
+            <th>
+              <a href="/edit/<%= user.usuario_id %>" class="btn btn-info"
+                >Editar</a
+              >
+              <a href="/delete/<%= user.usuario_id %>" class="btn btn-danger"
+                >Eliminar</a
+              >
+            </th>
+          </tr>
+          <% }) %> 
+
+        </tbody>
+      </table>
+    </main>
+    <%- include('script') %>
+  </body>
+</html>
